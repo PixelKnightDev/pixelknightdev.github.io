@@ -426,6 +426,23 @@ const Portfolio = () => {
       icon: <Terminal className="h-4 w-4 text-purple-400" />,
       github: "https://github.com/PixelKnightDev/gocowsay",
       tech: ["Go", "CLI", "ASCII Art"]
+    },
+    {
+    title: "Neovim Setup",
+    description: "A highly customized Neovim configuration built on LazyVim framework, optimized for modern development workflows. Features extensive plugin ecosystem, custom keybindings, and seamless integration with Alacritty terminal for a premium coding experience with syntax highlighting, LSP support, and productivity enhancements.",
+    header: (
+        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+        <img
+            src="/images/nvim.png"
+            alt="Neovim Setup Project"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+    ),
+    icon: <Terminal className="h-4 w-4 text-purple-400" />,
+    github: "https://github.com/PixelKnightDev/nvim-config",
+    tech: ["Lua", "LazyVim", "Alacritty", "LSP", "Neovim"]
     }
   ];
 
@@ -457,9 +474,7 @@ const Portfolio = () => {
           <div className="text-center max-w-4xl mx-auto px-4 py-20">
             <div className="mb-8">
               <div className="mb-6">
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
-                  PY
-                </div>
+                
               </div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
