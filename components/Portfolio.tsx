@@ -1,8 +1,7 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, Phone, ExternalLink, Code, Database, Globe, Server, Smartphone, Palette, Home, User, Briefcase, Settings, MessageCircle, Terminal, Box } from 'lucide-react';
-import { motion, AnimatePresence, MotionValue, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, Phone, ExternalLink, Code, Database, Globe, Server, Palette, Home, User, Briefcase, Settings, MessageCircle, Terminal } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Utility function (cn) - simple classname utility
 const cn = (...classes: (string | undefined)[]) => {
@@ -49,7 +48,7 @@ const BentoGrid = ({
   return (
     <div
       className={cn(
-        "mx-auto grid max-w-7xl grid-cols-1 gap-6 md:auto-rows-[28rem] md:grid-cols-3",
+        "mx-auto grid max-w-7xl grid-cols-1 gap-6 md:auto-rows-[25rem] md:grid-cols-3",
         className,
       )}
     >
@@ -98,7 +97,7 @@ const BentoGridItem = ({
               {title}
             </div>
           </div>
-          <div className="font-sans text-xs md:text-sm text-gray-300 mb-3 line-clamp-4 leading-relaxed">
+          <div className="font-sans text-xs md:text-sm text-gray-300 mb-3 line-clamp-2 leading-relaxed">
             {description}
           </div>
           {tech && (
@@ -247,12 +246,10 @@ const FloatingDockDesktop = ({
 function SidebarIconContainer({
   title,
   icon,
-  href,
   onClick,
 }: {
   title: string;
   icon: React.ReactNode;
-  href?: string;
   onClick?: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -292,8 +289,6 @@ function SidebarIconContainer({
 }
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('home');
-
   // Navigation items for FloatingDock
   const navigationItems = [
     {
@@ -344,7 +339,10 @@ const Portfolio = () => {
         }
         return false;
       });
-      if (current) setActiveSection(current);
+      // Section tracking logic here if needed
+      if (current) {
+        // Handle active section
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -358,16 +356,11 @@ const Portfolio = () => {
     }
   };
 
-  // Project Skeleton Component
-  const ProjectSkeleton = () => (
-    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/20"></div>
-  );
-
   // Projects data for Bento Grid
   const projects = [
     {
       title: "ChatMind",
-      description: "A modern, full-featured AI chat application built with Next.js 15, TypeScript, and Clerk authentication. Leveraging Groq's powerful Llama 3 model via Vercel AI SDK, it delivers real-time streaming responses with advanced features like file uploads, conversation management, and webhook integration for seamless external service connectivity.",
+      description: "A full-stack ChatGPT clone built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming, message editing, and multi-format file uploads.",
       header: (
         <div className="relative w-full h-full rounded-t-xl overflow-hidden">
           <img
@@ -425,7 +418,7 @@ const Portfolio = () => {
           <img
             src="/images/gocowsay.png"
             alt="GoCowsay Project"
-            className="object-cover object-left hover:scale-105 transition-transform duration-300"
+            className="object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -473,13 +466,12 @@ const Portfolio = () => {
                   Pratyush Yadav
                 </span>
               </h1>
-              <p className="text-xl md:text-3xl text-white mb-8">
+              <p className="text-xl md:text-2xl text-gray-300 mb-8">
                 Full-Stack Developer & CS Student at IIIT Jabalpur
               </p>
-              <p className="text-2xl text-white max-w-2xl mx-auto mb-12">
-                A developer passionate about building innovative web applications with modern technologies. 
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+                Passionate about building innovative web applications with modern technologies. 
                 Experienced in Next.js, React, AI integration, and backend development.
-                Currently exploring the world of machine learning.
               </p>
             </div>
           </div>
@@ -494,7 +486,7 @@ const Portfolio = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I'm a Computer Science student at the Indian Institute of Information Technology, Jabalpur, 
+                  I&apos;m a Computer Science student at the Indian Institute of Information Technology, Jabalpur, 
                   with a passion for creating impactful web applications and exploring the intersection of 
                   AI and web development.
                 </p>
@@ -504,21 +496,9 @@ const Portfolio = () => {
                   intelligent user experiences.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  When I'm not coding, you'll find me contributing to hackathons, exploring new technologies 
+                  When I&apos;m not coding, you&apos;ll find me contributing to hackathons, exploring new technologies 
                   like Go programming, or working on innovative projects that solve real-world problems.
                 </p>
-                {/* Resume Button */}
-                <div className="pt-4">
-                <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 font-medium text-white"
-                >
-                    <ExternalLink className="w-4 h-4" />
-                    View Resume
-                </a>
-                </div>
               </div>
               <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-8 rounded-2xl border border-purple-500/20">
                 <h3 className="text-2xl font-bold mb-6 text-purple-400">Education</h3>
@@ -597,11 +577,11 @@ const Portfolio = () => {
         <section id="contact" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Let's Connect
+              Lets Connect
             </h2>
             <p className="text-xl text-gray-300 mb-12">
-              I'm always interested in new opportunities and collaborations. 
-              Feel free to reach out if you'd like to work together!
+              I&apos;m always interested in new opportunities and collaborations. 
+              Feel free to reach out if you&apos;d like to work together!
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
