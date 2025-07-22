@@ -84,12 +84,12 @@ const BentoGridItem = ({
       )}
     >
       {/* Image Header - Takes more space */}
-      <div className="flex-[3] relative">
+      <div className="flex-[2] relative">
         {header}
       </div>
       
       {/* Content Section - Takes less space */}
-      <div className="flex-[2] p-4 flex flex-col justify-between">
+      <div className="flex-[3] p-4 flex flex-col justify-between">
         <div className="transition duration-200 group-hover/bento:translate-x-2">
           <div className="flex items-center gap-2 mb-2">
             {icon}
@@ -97,7 +97,7 @@ const BentoGridItem = ({
               {title}
             </div>
           </div>
-          <div className="font-sans text-xs md:text-sm text-gray-300 mb-3 line-clamp-2 leading-relaxed">
+          <div className="font-sans text-xs md:text-sm text-gray-300 mb-3 line-clamp-4 leading-relaxed">
             {description}
           </div>
           {tech && (
@@ -360,7 +360,7 @@ const Portfolio = () => {
   const projects = [
     {
       title: "ChatMind",
-      description: "A full-stack ChatGPT clone built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming, message editing, and multi-format file uploads.",
+      description: "Full-stack AI chat application built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming with Grok, message editing, and multi-format file uploads powered by Vercel AI SDK.",
       header: (
         <div className="relative w-full h-full rounded-t-xl overflow-hidden">
           <img
@@ -429,11 +429,11 @@ const Portfolio = () => {
     },
     {
     title: "Neovim Setup",
-    description: "A highly customized Neovim configuration built on LazyVim framework, optimized for modern development workflows. Features extensive plugin ecosystem, custom keybindings, and seamless integration with Alacritty terminal for a premium coding experience with syntax highlighting, LSP support, and productivity enhancements.",
+    description: "A highly customized Neovim configuration built on LazyVim framework",
     header: (
         <div className="relative w-full h-full rounded-t-xl overflow-hidden">
         <img
-            src="/images/nvim.png"
+            src="/images/neovim.png"
             alt="Neovim Setup Project"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
@@ -441,7 +441,7 @@ const Portfolio = () => {
         </div>
     ),
     icon: <Terminal className="h-4 w-4 text-purple-400" />,
-    github: "https://github.com/PixelKnightDev/nvim-config",
+    github: "https://github.com/PixelKnightDev/nvim-setup",
     tech: ["Lua", "LazyVim", "Alacritty", "LSP", "Neovim"]
     }
   ];
