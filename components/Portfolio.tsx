@@ -358,24 +358,24 @@ const Portfolio = () => {
 
   // Projects data for Bento Grid
   const projects = [
-    {
-      title: "ChatMind",
-      description: "Full-stack AI chat application built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming with Grok, message editing, and multi-format file uploads powered by Vercel AI SDK.",
-      header: (
-        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
-          <img
-            src="/images/chatmind.png"
-            alt="ChatMind Project"
-            className="object-cover hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
-      ),
-      icon: <Code className="h-4 w-4 text-purple-400" />,
-      github: "https://github.com/PixelKnightDev/chatmind",
-      tech: ["Next.js 15", "TypeScript", "Clerk", "Zustand", "Vercel AI SDK"],
-      className: "md:col-span-2"
-    },
+    // {
+    //   title: "ChatMind",
+    //   description: "Full-stack AI chat application built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming with Grok, message editing, and multi-format file uploads powered by Vercel AI SDK.",
+    //   header: (
+    //     <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+    //       <img
+    //         src="/images/chatmind.png"
+    //         alt="ChatMind Project"
+    //         className="object-cover hover:scale-105 transition-transform duration-300"
+    //       />
+    //       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+    //     </div>
+    //   ),
+    //   icon: <Code className="h-4 w-4 text-purple-400" />,
+    //   github: "https://github.com/PixelKnightDev/chatmind",
+    //   tech: ["Next.js 15", "TypeScript", "Clerk", "Zustand", "Vercel AI SDK"],
+    //   className: "md:col-span-2"
+    // },
     {
       title: "Weatherly",
       description: "A dynamic weather application with real-time meteorological data, geolocation integration, and mobile-first responsive design.",
@@ -467,9 +467,9 @@ const Portfolio = () => {
   type SkillCategory = 'Languages' | 'Frameworks' | 'Databases' | 'Tools';
 
   const skills: Record<SkillCategory, string[]> = {
-    "Languages": ["C/C++", "JavaScript", "HTML", "CSS", "Python", "Go"],
-    "Frameworks": ["Next.js", "React", "Express.js", "Node.js", "TailwindCSS"],
-    "Databases": ["MongoDB", "PostgreSQL"],
+    "Languages": ["C/C++", "JavaScript", "HTML", "CSS", "Go"],
+    "Frameworks": ["Next.js", "React", "Express.js", "Node.js"],
+    "Databases": ["MongoDB"],
     "Tools": ["VS Code", "Git", "Docker", "Postman", "Firebase", "Vercel", "Figma"]
   };
 
