@@ -376,24 +376,24 @@ const Portfolio = () => {
       tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"],
       className: "md:col-span-2"
     },
-    {
-      title: "Weatherly",
-      description: "A dynamic weather application with real-time meteorological data, geolocation integration, and mobile-first responsive design.",
-      header: (
-        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
-          <img
-            src="/images/weatherly.png"
-            alt="Weatherly Project"
-            className="object-cover hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
-      ),
-      icon: <Globe className="h-4 w-4 text-purple-400" />,
-      github: "https://github.com/PixelKnightDev/weather-app",
-      live: "https://weather-app-nu-three-84.vercel.app/",
-      tech: ["Next.js", "Open-Meteo API", "CSS", "Vercel"]
-    },
+    // {
+    //   title: "Weatherly",
+    //   description: "A dynamic weather application with real-time meteorological data, geolocation integration, and mobile-first responsive design.",
+    //   header: (
+    //     <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+    //       <img
+    //         src="/images/weatherly.png"
+    //         alt="Weatherly Project"
+    //         className="object-cover hover:scale-105 transition-transform duration-300"
+    //       />
+    //       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+    //     </div>
+    //   ),
+    //   icon: <Globe className="h-4 w-4 text-purple-400" />,
+    //   github: "https://github.com/PixelKnightDev/weather-app",
+    //   live: "https://weather-app-nu-three-84.vercel.app/",
+    //   tech: ["Next.js", "Open-Meteo API", "CSS", "Vercel"]
+    // },
     {
       title: "Backend BoilerPlate",
       description: "A production-ready Node.js and Express boilerplate with authentication, validation, error handling, and best practices for building RESTful APIs.",
@@ -562,7 +562,7 @@ const Portfolio = () => {
                   header={item.header}
                   icon={item.icon}
                   github={item.github}
-                  live={item.live}
+                  // live={item.live}
                   tech={item.tech}
                   className={item.className}
                 />
