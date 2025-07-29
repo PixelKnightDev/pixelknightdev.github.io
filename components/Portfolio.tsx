@@ -366,7 +366,7 @@ const Portfolio = () => {
           <img
             src="/images/glimpse.png"
             alt="Glimpse Interactive Code Search"
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -409,6 +409,24 @@ const Portfolio = () => {
       icon: <Server className="h-4 w-4 text-purple-400" />,
       github: "https://github.com/PixelKnightDev/Backend-BoilerPlate-Express-and-Node",
       tech: ["Node.js", "Express", "MongoDB", "JWT", "Validation"]
+    },
+    {
+      title: "ChatMind",
+      description: "Full-stack AI chat application built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming with Grok, message editing, and multi-format file uploads powered by Vercel AI SDK.",
+      header: (
+        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+          <img
+            src="/images/chatmind.png"
+            alt="ChatMind Project"
+            className="object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      ),
+      icon: <Code className="h-4 w-4 text-purple-400" />,
+      github: "https://github.com/PixelKnightDev/chatmind",
+      tech: ["Next.js 15", "TypeScript", "Clerk", "Zustand", "Vercel AI SDK"],
+      className: "md:col-span-2"
     },
     {
     title: "Glimpse",
