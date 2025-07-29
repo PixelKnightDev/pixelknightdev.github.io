@@ -411,6 +411,24 @@ const Portfolio = () => {
       tech: ["Node.js", "Express", "MongoDB", "JWT", "Validation"]
     },
     {
+    title: "Glimpse",
+    description: "A lightning-fast interactive code search tool with real-time TUI, instant editor integration, and smart file filtering for seamless code exploration.",
+    header: (
+      <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+        <img
+          src="/images/glimpse.png"
+          alt="Glimpse Interactive Code Search"
+          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      </div>
+    ),
+    icon: <Server className="h-4 w-4 text-purple-400" />,
+    github: "https://github.com/PixelKnightDev/Glimpse",
+    tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"],
+    className: "md:col-span-2"
+    },
+    {
       title: "GoCowsay",
       description: "A Go implementation of the classic cowsay command-line tool. A fun project demonstrating Go programming with ASCII art and command-line utilities.",
       header: (
@@ -444,23 +462,7 @@ const Portfolio = () => {
     github: "https://github.com/PixelKnightDev/nvim-setup",
     tech: ["Lua", "LazyVim", "Alacritty", "LSP", "Neovim"]
     },
-    {
-    title: "Glimpse",
-    description: "A lightning-fast interactive code search tool with real-time TUI, instant editor integration, and smart file filtering for seamless code exploration.",
-    header: (
-      <div className="relative w-full h-full rounded-t-xl overflow-hidden">
-        <img
-          src="/images/glimpse.png"
-          alt="Glimpse Interactive Code Search"
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-      </div>
-    ),
-    icon: <Server className="h-4 w-4 text-purple-400" />,
-    github: "https://github.com/PixelKnightDev/Glimpse",
-    tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"]
-  }
+
   ];
 
   // Define proper types for skills
