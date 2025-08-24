@@ -3,16 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, ExternalLink, Code, Database, Globe, Server, Palette, Home, User, Briefcase, Settings, MessageCircle, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Utility function (cn) - simple classname utility
 const cn = (...classes: (string | undefined)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-// Dot Background Component
 const DotBackground = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative min-h-screen w-full">
-      {/* Fixed dot background that doesn't scroll */}
       <div
         className="fixed inset-0 z-0 bg-black"
         style={{
@@ -21,7 +18,6 @@ const DotBackground = ({ children }: { children: React.ReactNode }) => {
           backgroundAttachment: 'fixed'
         }}
       />
-      {/* Fixed radial gradient overlay */}
       <div 
         className="fixed inset-0 z-0 pointer-events-none"
         style={{
@@ -29,7 +25,6 @@ const DotBackground = ({ children }: { children: React.ReactNode }) => {
           backgroundAttachment: 'fixed'
         }}
       />
-      {/* Content that scrolls over the fixed background */}
       <div className="relative z-10 w-full">
         {children}
       </div>
@@ -37,7 +32,6 @@ const DotBackground = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// Bento Grid Components
 const BentoGrid = ({
   className,
   children,
@@ -83,12 +77,10 @@ const BentoGridItem = ({
         className,
       )}
     >
-      {/* Image Header - Takes more space */}
       <div className="flex-[2] relative">
         {header}
       </div>
       
-      {/* Content Section - Takes less space */}
       <div className="flex-[3] p-4 flex flex-col justify-between">
         <div className="transition duration-200 group-hover/bento:translate-x-2">
           <div className="flex items-center gap-2 mb-2">
@@ -119,7 +111,6 @@ const BentoGridItem = ({
           )}
         </div>
         
-        {/* Buttons at bottom */}
         <div className="flex gap-2 mt-auto">
           {github && (
             <a
@@ -149,7 +140,6 @@ const BentoGridItem = ({
   );
 };
 
-// FloatingDock Component (Left Sidebar)
 const FloatingDock = ({
   items,
   desktopClassName,
@@ -289,7 +279,6 @@ function SidebarIconContainer({
 }
 
 const Portfolio = () => {
-  // Navigation items for FloatingDock
   const navigationItems = [
     {
       title: "Home",
@@ -339,9 +328,7 @@ const Portfolio = () => {
         }
         return false;
       });
-      // Section tracking logic here if needed
       if (current) {
-        // Handle active section
       }
     };
 
@@ -356,7 +343,6 @@ const Portfolio = () => {
     }
   };
 
-  // Projects data for Bento Grid
   const projects = [
     {
       title: "Glimpse",
@@ -373,6 +359,7 @@ const Portfolio = () => {
       ),
       icon: <Server className="h-4 w-4 text-purple-400" />,
       github: "https://github.com/PixelKnightDev/Glimpse",
+      live: "https://github.com/PixelKnightDev/Glimpse/releases/tag/v1.0.0",
       tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"],
       className: "md:col-span-2"
     },
@@ -465,7 +452,6 @@ const Portfolio = () => {
 
   ];
 
-  // Define proper types for skills
   type SkillCategory = 'Languages' | 'Frameworks' | 'Databases' | 'Tools';
 
   const skills: Record<SkillCategory, string[]> = {
@@ -485,10 +471,8 @@ const Portfolio = () => {
   return (
     <DotBackground>
       <div className="min-h-screen text-white overflow-x-hidden">
-        {/* Left Sidebar Navigation */}
         <FloatingDock items={navigationItems} />
 
-        {/* Hero Section */}
         <section id="home" className="relative flex min-h-screen items-center justify-center">
           <div className="text-center max-w-4xl mx-auto px-4 py-20">
             <div className="mb-8">
@@ -511,7 +495,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -536,7 +519,7 @@ const Portfolio = () => {
               </div>
               <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-8 rounded-2xl border border-purple-500/20">
                 <h3 className="text-2xl font-bold mb-6 text-purple-400">Education</h3>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-6">
                   <div>
                     <h4 className="text-xl font-semibold text-white">Bachelor of Technology</h4>
                     <p className="text-purple-300">Computer Science Major</p>
@@ -544,12 +527,20 @@ const Portfolio = () => {
                     <p className="text-sm text-gray-500">Aug 2024 - Present</p>
                   </div>
                 </div>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 font-medium"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View Resume
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Projects Section with Bento Grid */}
         <section id="projects" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -564,7 +555,7 @@ const Portfolio = () => {
                   header={item.header}
                   icon={item.icon}
                   github={item.github}
-                  // live={item.live}
+                  live={item.live}
                   tech={item.tech}
                   className={item.className}
                 />
@@ -573,7 +564,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
         <section id="skills" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -607,7 +597,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -662,7 +651,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="relative py-8 px-4 border-t border-gray-800 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto text-center">
             <p className="text-gray-400">
