@@ -457,7 +457,7 @@ const Portfolio = () => {
   const skills: Record<SkillCategory, string[]> = {
     "Languages": ["C/C++", "JavaScript", "HTML", "CSS", "Go"],
     "Frameworks": ["Next.js", "React", "Express.js", "Node.js"],
-    "Databases": ["MongoDB"],
+    "Databases": ["MongoDB", "PostgreSql"],
     "Tools": ["VS Code", "Git", "Docker", "Postman", "Firebase", "Vercel", "Figma"]
   };
 
