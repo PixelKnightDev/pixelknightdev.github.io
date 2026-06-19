@@ -762,13 +762,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        <footer className="relative py-8 px-4 border-t border-gray-800 ml-0 md:ml-20">
-          <div className="max-w-6xl mx-auto text-center">
-            <p className="text-blue-400">
-              © 2025 Pratyush Yadav. Built with Next.js and passion for great design.
-            </p>
-          </div>
-        </footer>
+      
 
         <style jsx>{`
           html {
