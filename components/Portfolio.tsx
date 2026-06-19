@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, ExternalLink, Code, Database, Globe, Server, Palette, Home, User, Briefcase, Settings, MessageCircle, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, ExternalLink, Code, Database, Globe, Server, Palette, Home, User, Briefcase, Settings, MessageCircle, Terminal, ShieldCheck, Award, Trophy, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AsciiArt } from '@/components/ui/ascii-art';
 
 const cn = (...classes: (string | undefined)[]) => {
   return classes.filter(Boolean).join(' ');
@@ -42,7 +43,7 @@ const BentoGrid = ({
   return (
     <div
       className={cn(
-        "mx-auto grid max-w-7xl grid-cols-1 gap-6 md:auto-rows-[25rem] md:grid-cols-3",
+        "mx-auto grid max-w-7xl grid-cols-1 gap-6 md:auto-rows-[25rem] md:grid-cols-2",
         className,
       )}
     >
@@ -296,6 +297,11 @@ const Portfolio = () => {
       onClick: () => scrollToSection('projects')
     },
     {
+      title: "Recognition",
+      icon: <Award className="h-full w-full" />,
+      onClick: () => scrollToSection('recognition')
+    },
+    {
       title: "Skills",
       icon: <Code className="h-full w-full" />,
       onClick: () => scrollToSection('skills')
@@ -319,7 +325,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'about', 'projects', 'recognition', 'skills', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -345,6 +351,25 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "Aegis-AST",
+      description: "A zero-trust supply chain security scanner for npm that parses the full AST of every source file to catch phantom dependencies, packages declared but never imported. Six heuristic scanners run in under a second behind a quarantine-first install, with Groq AI as a second-pass validator that filters false positives.",
+      header: (
+        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+          <img
+            src="/images/aegis-ast.png"
+            alt="Aegis-AST Project"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      ),
+      icon: <ShieldCheck className="h-4 w-4 text-indigo-400" />,
+      github: "https://github.com/PixelKnightDev/Aegis",
+      live: "https://www.npmjs.com/package/aegis-ast",
+      tech: ["TypeScript", "Babel AST", "Groq AI", "MongoDB Atlas", "Commander.js"],
+      className: "md:col-span-2"
+    },
+    {
       title: "Glimpse",
       description: "A lightning-fast interactive code search tool with real-time TUI, instant editor integration, and smart file filtering for seamless code exploration.",
       header: (
@@ -360,8 +385,7 @@ const Portfolio = () => {
       icon: <Server className="h-4 w-4 text-indigo-400" />,
       github: "https://github.com/PixelKnightDev/Glimpse",
       live: "https://github.com/PixelKnightDev/Glimpse/releases/tag/v1.0.0",
-      tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"],
-      className: "md:col-span-2"
+      tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"]
     },
 
     {
@@ -372,7 +396,7 @@ const Portfolio = () => {
           <img
             src="/images/weatherly.png"
             alt="Weatherly Project"
-            className="object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -383,25 +407,6 @@ const Portfolio = () => {
       tech: ["Next.js", "Open-Meteo API", "Vercel"]
     },
     {
-      title: "Clustify",
-      description: "A Gmail cleanup automation tool that securely deletes emails using rule-based keyword matching, batch operations, and OAuth2 authentication with full safety previews.",
-      header: (
-        <div className="relative w-full h-30 rounded-t-xl overflow-hidden bg-gradient-to-br from-red-900/30 to-orange-900/30 flex items-center justify-center">
-          <img
-            src="/images/clustify.png"
-            alt="Clustify Project"
-            className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          <Mail className="w-full h-full text-indigo-400" />
-        </div>
-      ),
-      icon: <Mail className="h-4 w-4 text-indigo-400" />,
-      github: "https://github.com/PixelKnightDev/Clustify",
-      live: "https://addons.mozilla.org/en-US/firefox/addon/clustify/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search",
-      tech: ["JavaScript", "Gmail API", "OAuth2"]
-    },
-    {
       title: "ChatMind",
       description: "Full-stack AI chat application built with Next.js 15, TypeScript, and Clerk authentication featuring real-time AI streaming with Grok, message editing, and multi-format file uploads powered by Vercel AI SDK.",
       header: (
@@ -409,7 +414,7 @@ const Portfolio = () => {
           <img
             src="/images/chatmind.png"
             alt="ChatMind Project"
-            className="object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -419,6 +424,41 @@ const Portfolio = () => {
       tech: ["Next.js 15", "TypeScript", "Clerk", "Zustand", "Vercel AI SDK"],
       className: "md:col-span-2"
     },
+    {
+      title: "Clustify",
+      description: "A Gmail cleanup automation tool that securely deletes emails using rule-based keyword matching, batch operations, and OAuth2 authentication with full safety previews.",
+      header: (
+        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+          <img
+            src="/images/clustify.png"
+            alt="Clustify Project"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      ),
+      icon: <Mail className="h-4 w-4 text-indigo-400" />,
+      github: "https://github.com/PixelKnightDev/Clustify",
+      live: "https://addons.mozilla.org/en-US/firefox/addon/clustify/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search",
+      tech: ["JavaScript", "Gmail API", "OAuth2"]
+    },
+    {
+      title: "GoCowsay",
+      description: "A Go implementation of the classic cowsay command-line tool. A fun project demonstrating Go programming with ASCII art and command-line utilities.",
+      header: (
+        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
+          <img
+            src="/images/gocowsay.png"
+            alt="GoCowsay Project"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      ),
+      icon: <Terminal className="h-4 w-4 text-indigo-400" />,
+      github: "https://github.com/PixelKnightDev/gocowsay",
+      tech: ["Go", "CLI", "ASCII Art"]
+    },
         {
         title: "QuantForge Backtesting Platform",
         description: "A full-stack trading strategy backtesting and deployment platform with real-time monitoring, visual strategy builder, performance analytics, and WebSocket-based updates.",
@@ -427,7 +467,7 @@ const Portfolio = () => {
           <img
             src="/images/quantforge.jpeg"
             alt="QuantForge Project"
-            className="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -438,23 +478,6 @@ const Portfolio = () => {
       className: "md:col-span-2"
     },
     {
-      title: "GoCowsay",
-      description: "A Go implementation of the classic cowsay command-line tool. A fun project demonstrating Go programming with ASCII art and command-line utilities.",
-      header: (
-        <div className="relative w-full h-full rounded-t-xl overflow-hidden">
-          <img
-            src="/images/gocowsay.png"
-            alt="GoCowsay Project"
-            className="object-cover hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
-      ),
-      icon: <Terminal className="h-4 w-4 text-indigo-400" />,
-      github: "https://github.com/PixelKnightDev/gocowsay",
-      tech: ["Go", "CLI", "ASCII Art"]
-    },
-    {
     title: "Neovim Setup",
     description: "A highly customized Neovim configuration built on LazyVim framework",
     header: (
@@ -462,7 +485,7 @@ const Portfolio = () => {
         <img
             src="/images/neovim.png"
             alt="Neovim Setup Project"
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -472,6 +495,33 @@ const Portfolio = () => {
     tech: ["Lua", "LazyVim", "Alacritty", "LSP", "Neovim"]
     },
 
+  ];
+
+  const recognition = [
+    {
+      title: "3rd Place, HackByte 4.0",
+      detail: "MLH Top-50 global hackathon. Competed among 400+ offline participants and 5100+ registrations nationwide.",
+      date: "Apr 2026",
+      icon: <Trophy className="w-6 h-6 text-indigo-400" />
+    },
+    {
+      title: "Winner, CanYouHackIt",
+      detail: "First place in the Automation & Productivity track at the 24-hour intra-college hackathon for building Clustify.",
+      date: "Sep 2025",
+      icon: <Award className="w-6 h-6 text-indigo-400" />
+    },
+    {
+      title: "Dev Wing Member, BitByte Programming Club",
+      detail: "Core team member, technical contributor, and event organizer.",
+      date: "2024 to Present",
+      icon: <Users className="w-6 h-6 text-indigo-400" />
+    },
+    {
+      title: "Competitive Programming",
+      detail: "Codeforces rating 1191 and 150+ problems solved on LeetCode.",
+      date: "Ongoing",
+      icon: <Code className="w-6 h-6 text-indigo-400" />
+    }
   ];
 
   type SkillCategory = 'Languages' | 'Frameworks' | 'Databases' | 'Tools';
@@ -495,24 +545,37 @@ const Portfolio = () => {
       <div className="min-h-screen text-white overflow-x-hidden">
         <FloatingDock items={navigationItems} />
 
-        <section id="home" className="relative flex min-h-screen items-center justify-center">
-          <div className="text-center max-w-4xl mx-auto px-4 py-20">
-            <div className="mb-8">
-              <div className="mb-6">
-                
+        <section id="home" className="relative flex min-h-screen items-center justify-center ml-0 md:ml-20">
+          <div className="max-w-6xl mx-auto px-4 py-20 w-full">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div className="flex justify-center md:justify-end">
+                <div className="relative w-full max-w-sm aspect-square rounded-2xl border border-indigo-500/30 bg-black/40 backdrop-blur-sm overflow-hidden">
+                  <AsciiArt
+                    src="/images/logo.jpg"
+                    resolution={300}
+                    color="#818cf8"
+                    inverted
+                    animationStyle="fade"
+                    animationDuration={1.5}
+                    animateOnView={false}
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
-                  Pratyush Yadav
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                Full-Stack Developer & CS Student at IIIT Jabalpur
-              </p>
-              <p className="text-lg text-indigo-400 max-w-2xl mx-auto mb-12">
-                Passionate about building innovative web applications with modern technologies. 
-                Experienced in Next.js, React, AI integration, and backend development.
-              </p>
+              <div className="text-center md:text-left">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
+                    Pratyush Yadav
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 mb-8">
+                  Full-Stack Developer & CS Student at IIIT Jabalpur
+                </p>
+                <p className="text-lg text-indigo-400 max-w-2xl mx-auto md:mx-0 mb-12">
+                  Passionate about building innovative web applications with modern technologies. 
+                  Experienced in Next.js, React, AI integration, and backend development.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -526,17 +589,17 @@ const Portfolio = () => {
               <div className="space-y-6">
                 <p className="text-lg text-gray-200 leading-relaxed">
                   I&apos;m a Computer Science student at the Indian Institute of Information Technology, Jabalpur, 
-                  with a passion for creating impactful web applications and exploring the intersection of 
-                  AI and web development.
+                  drawn to the systems layer of software, the parts where performance, reliability, and scale 
+                  actually get decided.
                 </p>
                 <p className="text-lg text-gray-200 leading-relaxed">
-                  My journey in tech has led me to develop full-stack applications using modern frameworks 
-                  like Next.js and React, while integrating cutting-edge AI technologies to create 
-                  intelligent user experiences.
+                  My aim is to work in infrastructure engineering, building the kind of tools and platforms that 
+                  other developers lean on without having to think about them. I&apos;m especially drawn to 
+                  distributed systems, systems programming in Go, and open-source security tooling.
                 </p>
                 <p className="text-lg text-gray-200 leading-relaxed">
-                  When I&apos;m not coding, you&apos;ll find me contributing to hackathons, exploring new technologies 
-                  like Go programming, or working on innovative projects that solve real-world problems.
+                  Away from the editor, you&apos;ll find me on the basketball court, behind a camera, or lost in a 
+                  story-driven or pixel game. I gravitate toward projects that have a bit of craft to them.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-indigo-900/20 to-violet-900/20 p-8 rounded-2xl border border-indigo-500/30">
@@ -583,6 +646,33 @@ const Portfolio = () => {
                 />
               ))}
             </BentoGrid>
+          </div>
+        </section>
+
+        <section id="recognition" className="relative py-20 px-4 ml-0 md:ml-20">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+              Recognition
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {recognition.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300"
+                >
+                  <div className="p-2 bg-indigo-500/20 rounded-lg shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-1">
+                      <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                      <span className="text-xs text-indigo-400 whitespace-nowrap">{item.date}</span>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -641,13 +731,13 @@ const Portfolio = () => {
                 </div>
               </a>
               <a
-                href="tel:+918765025989"
+                href="tel:+918765024989"
                 className="flex items-center justify-center gap-3 p-6 bg-gradient-to-br from-indigo-900/20 to-violet-900/20 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/50 transition-all duration-300 transform hover:scale-105"
               >
                 <Phone className="w-6 h-6 text-indigo-400" />
                 <div className="text-left">
                   <p className="text-sm text-indigo-400">Phone</p>
-                  <p className="text-white">+91-8765025989</p>
+                  <p className="text-white">+91-8765024989</p>
                 </div>
               </a>
             </div>
