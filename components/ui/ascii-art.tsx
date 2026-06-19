@@ -466,7 +466,7 @@ export const AsciiArt: React.FC<AsciiArtProps> = ({
         )}
         style={{ backgroundColor }}
       >
-        Loading...
+        
       </div>
     );
   }

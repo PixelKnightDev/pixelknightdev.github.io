@@ -74,7 +74,7 @@ const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "group/bento shadow-input row-span-1 flex flex-col rounded-xl border border-indigo-500/30 bg-black/50 backdrop-blur-sm p-0 transition duration-200 hover:shadow-xl hover:border-indigo-500/50 overflow-hidden",
+        "group/bento shadow-input row-span-1 flex flex-col rounded-xl border border-blue-500/30 bg-black/50 backdrop-blur-sm p-0 transition duration-200 hover:shadow-xl hover:border-blue-500/50 overflow-hidden",
         className,
       )}
     >
@@ -98,13 +98,13 @@ const BentoGridItem = ({
               {tech.slice(0, 4).map((item, index) => (
                 <span
                   key={index}
-                  className="px-2 py-1 bg-indigo-500/20 text-gray-200 rounded-full text-xs border border-indigo-500/30 whitespace-nowrap"
+                  className="px-2 py-1 bg-blue-500/20 text-gray-200 rounded-full text-xs border border-blue-500/30 whitespace-nowrap"
                 >
                   {item}
                 </span>
               ))}
               {tech.length > 4 && (
-                <span className="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">
+                <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">
                   +{tech.length - 4}
                 </span>
               )}
@@ -118,7 +118,7 @@ const BentoGridItem = ({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-               className="flex items-center gap-1 px-3 py-1.5 bg-indigo-500/20 text-gray-200 rounded-lg hover:bg-indigo-500/30 transition-colors text-xs font-medium"
+               className="flex items-center gap-1 px-3 py-1.5 bg-blue-500/20 text-gray-200 rounded-lg hover:bg-blue-500/30 transition-colors text-xs font-medium"
             >
               <Github className="w-3 h-3" />
               Code
@@ -129,7 +129,7 @@ const BentoGridItem = ({
               href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 px-3 py-1.5 border border-indigo-500/50 text-gray-200 rounded-lg hover:bg-indigo-500/20 transition-colors text-xs font-medium"
+              className="flex items-center gap-1 px-3 py-1.5 border border-blue-500/50 text-gray-200 rounded-lg hover:bg-blue-500/20 transition-colors text-xs font-medium"
             >
               <ExternalLink className="w-3 h-3" />
               Live
@@ -172,7 +172,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute top-full mt-2 flex flex-col gap-2 bg-black/90 backdrop-blur-md rounded-2xl p-3 border border-indigo-500/30"
+            className="absolute top-full mt-2 flex flex-col gap-2 bg-black/90 backdrop-blur-md rounded-2xl p-3 border border-blue-500/30"
           >
             {items.map((item, idx) => (
               <motion.div
@@ -196,9 +196,9 @@ const FloatingDockMobile = ({
                     if (item.onClick) item.onClick();
                     setOpen(false);
                   }}
-                  className="flex items-center gap-3 px-3 py-2 rounded-lg bg-gray-900/50 hover:bg-indigo-500/20 transition-colors group min-w-[120px]"
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg bg-gray-900/50 hover:bg-blue-500/20 transition-colors group min-w-[120px]"
                 >
-                  <div className="h-4 w-4 text-indigo-400 group-hover:text-gray-200">{item.icon}</div>
+                  <div className="h-4 w-4 text-blue-400 group-hover:text-gray-200">{item.icon}</div>
                   <span className="text-sm text-gray-200 group-hover:text-white">{item.title}</span>
                 </button>
               </motion.div>
@@ -208,9 +208,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/80 backdrop-blur-md border border-indigo-500/30 hover:border-indigo-500/40 transition-colors"
+        className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/80 backdrop-blur-md border border-blue-500/30 hover:border-blue-500/40 transition-colors"
       >
-        <Settings className="h-5 w-5 text-indigo-400" />
+        <Settings className="h-5 w-5 text-blue-400" />
       </button>
     </div>
   );
@@ -225,7 +225,7 @@ const FloatingDockDesktop = ({
 }) => {
   return (
     <motion.div
-      className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-3 bg-black/80 backdrop-blur-md rounded-2xl p-4 border border-indigo-500/30 hover:border-indigo-500/30 transition-colors ${className}`}
+      className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-3 bg-black/80 backdrop-blur-md rounded-2xl p-4 border border-blue-500/30 hover:border-blue-500/30 transition-colors ${className}`}
     >
       {items.map((item) => (
         <SidebarIconContainer key={item.title} {...item} />
@@ -255,9 +255,9 @@ function SidebarIconContainer({
         onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="group flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900/50 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/30 transition-all duration-300 hover:scale-110"
+        className="group flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900/50 hover:bg-blue-500/20 border border-blue-500/20 hover:border-blue-500/30 transition-all duration-300 hover:scale-110"
       >
-        <div className="h-5 w-5 text-indigo-400 group-hover:text-gray-200 transition-colors">
+        <div className="h-5 w-5 text-blue-400 group-hover:text-gray-200 transition-colors">
           {icon}
         </div>
       </button>
@@ -268,7 +268,7 @@ function SidebarIconContainer({
             initial={{ opacity: 0, x: -10, scale: 0.8 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -10, scale: 0.8 }}
-            className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 px-3 py-2 bg-black/90 backdrop-blur-md rounded-lg border border-indigo-500/30 whitespace-nowrap z-60"
+            className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 px-3 py-2 bg-black/90 backdrop-blur-md rounded-lg border border-blue-500/30 whitespace-nowrap z-60"
           >
             <span className="text-sm text-white font-medium">{title}</span>
             <div className="absolute right-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-green-500/30"></div>
@@ -363,7 +363,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <ShieldCheck className="h-4 w-4 text-indigo-400" />,
+      icon: <ShieldCheck className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/Aegis",
       live: "https://www.npmjs.com/package/aegis-ast",
       tech: ["TypeScript", "Babel AST", "Groq AI", "MongoDB Atlas", "Commander.js"],
@@ -382,7 +382,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Server className="h-4 w-4 text-indigo-400" />,
+      icon: <Server className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/Glimpse",
       live: "https://github.com/PixelKnightDev/Glimpse/releases/tag/v1.0.0",
       tech: ["Go", "Bubbletea", "Lipgloss", "TUI", "CLI", "Real-time Search"]
@@ -401,7 +401,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Globe className="h-4 w-4 text-indigo-400" />,
+      icon: <Globe className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/weather-app",
       live: "https://weather-app-nu-three-84.vercel.app/",
       tech: ["Next.js", "Open-Meteo API", "Vercel"]
@@ -419,7 +419,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Code className="h-4 w-4 text-indigo-400" />,
+      icon: <Code className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/chatmind",
       tech: ["Next.js 15", "TypeScript", "Clerk", "Zustand", "Vercel AI SDK"],
       className: "md:col-span-2"
@@ -437,7 +437,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Mail className="h-4 w-4 text-indigo-400" />,
+      icon: <Mail className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/Clustify",
       live: "https://addons.mozilla.org/en-US/firefox/addon/clustify/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search",
       tech: ["JavaScript", "Gmail API", "OAuth2"]
@@ -455,7 +455,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Terminal className="h-4 w-4 text-indigo-400" />,
+      icon: <Terminal className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/gocowsay",
       tech: ["Go", "CLI", "ASCII Art"]
     },
@@ -472,7 +472,7 @@ const Portfolio = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       ),
-      icon: <Code className="h-4 w-4 text-indigo-400" />,
+      icon: <Code className="h-4 w-4 text-blue-400" />,
       github: "https://github.com/PixelKnightDev/quantforge",
       tech: ["FastAPI", "React", "TypeScript", "WebSockets", "PostgreSQL", "Strategy Backtesting"],
       className: "md:col-span-2"
@@ -490,7 +490,7 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
     ),
-    icon: <Terminal className="h-4 w-4 text-indigo-400" />,
+    icon: <Terminal className="h-4 w-4 text-blue-400" />,
     github: "https://github.com/PixelKnightDev/nvim-setup",
     tech: ["Lua", "LazyVim", "Alacritty", "LSP", "Neovim"]
     },
@@ -502,25 +502,24 @@ const Portfolio = () => {
       title: "3rd Place, HackByte 4.0",
       detail: "MLH Top-50 global hackathon. Competed among 400+ offline participants and 5100+ registrations nationwide.",
       date: "Apr 2026",
-      icon: <Trophy className="w-6 h-6 text-indigo-400" />
+      icon: <Trophy className="w-6 h-6 text-blue-400" />
     },
     {
       title: "Winner, CanYouHackIt",
       detail: "First place in the Automation & Productivity track at the 24-hour intra-college hackathon for building Clustify.",
       date: "Sep 2025",
-      icon: <Award className="w-6 h-6 text-indigo-400" />
+      icon: <Award className="w-6 h-6 text-blue-400" />
     },
     {
       title: "Dev Wing Member, BitByte Programming Club",
       detail: "Core team member, technical contributor, and event organizer.",
       date: "2024 to Present",
-      icon: <Users className="w-6 h-6 text-indigo-400" />
+      icon: <Users className="w-6 h-6 text-blue-400" />
     },
     {
       title: "Competitive Programming",
-      detail: "Codeforces rating 1191 and 150+ problems solved on LeetCode.",
-      date: "Ongoing",
-      icon: <Code className="w-6 h-6 text-indigo-400" />
+      detail: "Codeforces rating 1310",
+      icon: <Code className="w-6 h-6 text-blue-400" />
     }
   ];
 
@@ -549,11 +548,11 @@ const Portfolio = () => {
           <div className="max-w-6xl mx-auto px-4 py-20 w-full">
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
               <div className="flex justify-center md:justify-end">
-                <div className="relative w-full max-w-sm aspect-square rounded-2xl border border-indigo-500/30 bg-black/40 backdrop-blur-sm overflow-hidden">
+                <div className="relative w-full max-w-sm aspect-square rounded-2xl border border-blue-500/30 bg-black/40 backdrop-blur-sm overflow-hidden">
                   <AsciiArt
                     src="/images/logo.jpg"
                     resolution={300}
-                    color="#818cf8"
+                    color="#38bdf8"
                     inverted
                     animationStyle="fade"
                     animationDuration={1.5}
@@ -564,14 +563,14 @@ const Portfolio = () => {
               </div>
               <div className="text-center md:text-left">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500 bg-clip-text text-transparent">
                     Pratyush Yadav
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-200 mb-8">
                   Full-Stack Developer & CS Student at IIIT Jabalpur
                 </p>
-                <p className="text-lg text-indigo-400 max-w-2xl mx-auto md:mx-0 mb-12">
+                <p className="text-lg text-blue-400 max-w-2xl mx-auto md:mx-0 mb-12">
                   Passionate about building innovative web applications with modern technologies. 
                   Experienced in Next.js, React, AI integration, and backend development.
                 </p>
@@ -582,7 +581,7 @@ const Portfolio = () => {
 
         <section id="about" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-500 to-sky-500 bg-clip-text text-transparent">
               About Me
             </h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -602,13 +601,13 @@ const Portfolio = () => {
                   story-driven or pixel game. I gravitate toward projects that have a bit of craft to them.
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-indigo-900/20 to-violet-900/20 p-8 rounded-2xl border border-indigo-500/30">
-                <h3 className="text-2xl font-bold mb-6 text-indigo-400">Education</h3>
+              <div className="bg-gradient-to-br from-blue-900/20 to-sky-900/20 p-8 rounded-2xl border border-blue-500/30">
+                <h3 className="text-2xl font-bold mb-6 text-blue-400">Education</h3>
                 <div className="space-y-4 mb-6">
                   <div>
                     <h4 className="text-xl font-semibold text-white">Bachelor of Technology</h4>
                     <p className="text-gray-200">Computer Science Major</p>
-                    <p className="text-indigo-400">Indian Institute of Information Technology, Jabalpur</p>
+                    <p className="text-blue-400">Indian Institute of Information Technology, Jabalpur</p>
                     <p className="text-sm text-gray-500">Aug 2024 - Present</p>
                   </div>
                 </div>
@@ -616,7 +615,7 @@ const Portfolio = () => {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-lg hover:from-indigo-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-105 font-medium"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-lg hover:from-blue-700 hover:to-sky-700 transition-all duration-300 transform hover:scale-105 font-medium"
                 >
                   <ExternalLink className="w-4 h-4" />
                   View Resume
@@ -628,7 +627,7 @@ const Portfolio = () => {
 
         <section id="projects" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-500 to-sky-500 bg-clip-text text-transparent">
               Featured Projects
             </h2>
             <BentoGrid className="max-w-6xl mx-auto">
@@ -651,22 +650,22 @@ const Portfolio = () => {
 
         <section id="recognition" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-500 to-sky-500 bg-clip-text text-transparent">
               Recognition
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {recognition.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300"
+                  className="flex items-start gap-4 bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
                 >
-                  <div className="p-2 bg-indigo-500/20 rounded-lg shrink-0">
+                  <div className="p-2 bg-blue-500/20 rounded-lg shrink-0">
                     {item.icon}
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-1">
                       <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                      <span className="text-xs text-indigo-400 whitespace-nowrap">{item.date}</span>
+                      <span className="text-xs text-blue-400 whitespace-nowrap">{item.date}</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">{item.detail}</p>
                   </div>
@@ -678,17 +677,17 @@ const Portfolio = () => {
 
         <section id="skills" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-500 to-sky-500 bg-clip-text text-transparent">
               Technical Skills
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {(Object.entries(skills) as [SkillCategory, string[]][]).map(([category, skillList]) => (
                 <div
                   key={category}
-                  className="bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300"
+                  className="bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-indigo-500/20 rounded-lg">
+                    <div className="p-2 bg-blue-500/20 rounded-lg">
                       {skillIcons[category]}
                     </div>
                     <h3 className="text-xl font-bold text-white">{category}</h3>
@@ -697,7 +696,7 @@ const Portfolio = () => {
                     {skillList.map((skill, index) => (
                       <div
                         key={index}
-                        className="px-3 py-2 bg-indigo-500/15 text-gray-200 rounded-lg text-sm border border-indigo-500/30"
+                        className="px-3 py-2 bg-blue-500/15 text-gray-200 rounded-lg text-sm border border-blue-500/30"
                       >
                         {skill}
                       </div>
@@ -711,7 +710,7 @@ const Portfolio = () => {
 
         <section id="contact" className="relative py-20 px-4 ml-0 md:ml-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-sky-500 bg-clip-text text-transparent">
               Lets Connect
             </h2>
             <p className="text-xl text-gray-200 mb-12">
@@ -722,21 +721,21 @@ const Portfolio = () => {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <a
                 href="mailto:pratyushyadav0106@gmail.com"
-                className="flex items-center justify-center gap-3 p-6 bg-gradient-to-br from-indigo-900/20 to-violet-900/20 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/50 transition-all duration-300 transform hover:scale-105"
+                className="flex items-center justify-center gap-3 p-6 bg-gradient-to-br from-blue-900/20 to-sky-900/20 rounded-2xl border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
               >
-                <Mail className="w-6 h-6 text-indigo-400" />
+                <Mail className="w-6 h-6 text-blue-400" />
                 <div className="text-left">
-                  <p className="text-sm text-indigo-400">Email</p>
+                  <p className="text-sm text-blue-400">Email</p>
                   <p className="text-white">pratyushyadav0106@gmail.com</p>
                 </div>
               </a>
               <a
                 href="tel:+918765024989"
-                className="flex items-center justify-center gap-3 p-6 bg-gradient-to-br from-indigo-900/20 to-violet-900/20 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/50 transition-all duration-300 transform hover:scale-105"
+                className="flex items-center justify-center gap-3 p-6 bg-gradient-to-br from-blue-900/20 to-sky-900/20 rounded-2xl border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
               >
-                <Phone className="w-6 h-6 text-indigo-400" />
+                <Phone className="w-6 h-6 text-blue-400" />
                 <div className="text-left">
-                  <p className="text-sm text-indigo-400">Phone</p>
+                  <p className="text-sm text-blue-400">Phone</p>
                   <p className="text-white">+91-8765024989</p>
                 </div>
               </a>
@@ -747,7 +746,7 @@ const Portfolio = () => {
                 href="https://github.com/PixelKnightDev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full hover:from-indigo-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-110"
+                className="p-4 bg-gradient-to-r from-blue-600 to-sky-600 rounded-full hover:from-blue-700 hover:to-sky-700 transition-all duration-300 transform hover:scale-110"
               >
                 <Github className="w-6 h-6" />
               </a>
@@ -755,7 +754,7 @@ const Portfolio = () => {
                 href="https://linkedin.com/in/pratyush-yadav-186291306/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full hover:from-indigo-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-110"
+                className="p-4 bg-gradient-to-r from-blue-600 to-sky-600 rounded-full hover:from-blue-700 hover:to-sky-700 transition-all duration-300 transform hover:scale-110"
               >
                 <Linkedin className="w-6 h-6" />
               </a>
@@ -765,7 +764,7 @@ const Portfolio = () => {
 
         <footer className="relative py-8 px-4 border-t border-gray-800 ml-0 md:ml-20">
           <div className="max-w-6xl mx-auto text-center">
-            <p className="text-indigo-400">
+            <p className="text-blue-400">
               © 2025 Pratyush Yadav. Built with Next.js and passion for great design.
             </p>
           </div>
